@@ -1,0 +1,39 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sbapp
+spec:
+  selector:
+    matchLabels:
+      app: sbapp
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: sbapp
+    spec:
+      containers:
+        - name: sbapp
+          image: fra.ocir.io/fr1ie1pznths/spring-projects/spring-boot-hello-app:latest
+          imagePullPolicy: Always
+          ports:
+            - name: sbapp
+              containerPort: 8080
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sbapp-lb
+  labels:
+    app: sbapp
+spec:
+  type: LoadBalancer
+  selector:
+    app: sbapp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+
