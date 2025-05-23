@@ -12,17 +12,6 @@ env:
   OCI_CLI_KEY_CONTENT: ${{ secrets.OCI_CLI_KEY_CONTENT }}
   OCI_CLI_REGION: ${{ secrets.OCI_CLI_REGION }}
 
-<<<<<<< HEAD
-    paths-ignore:
-
-      - 'workflow.yml'
-
-#test test
-# test2
-
- 
-=======
->>>>>>> 7dac6ae1842301512714579e2fa8e863db154469
 jobs:
   build-job:
     name: Build Job
