@@ -6,7 +6,7 @@ on:
 
     branches:
 
-      - ignore
+      - main
 
     paths-ignore:
 
@@ -62,7 +62,7 @@ jobs:
           auth_token: ${{ secrets.OCI_AUTH_TOKEN }}
 
  
-
+#comment   sjisj
       - name: Tag and push a container image
 
         id: tag-and-push-image
